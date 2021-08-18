@@ -24,7 +24,11 @@
 
 package com.nlasagni.redditpicgrid.data
 
+import android.util.Log
 import com.nlasagni.redditpicgrid.api.RedditService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -32,6 +36,16 @@ import javax.inject.Inject
  */
 class ListingRootDataSource @Inject constructor(private val service: RedditService) {
 
-    suspend fun searchPosts(keyword: String): ListingRoot? = service.searchSubredditPosts(keyword)
+    suspend fun searchPosts(keyword: String): ListingRoot? {
+        return withContext(Dispatchers.IO) {
+            var listingRoot: ListingRoot? = null
+            try {
+                listingRoot = service.searchSubredditPosts(keyword)
+            } catch (ex: HttpException) {
+                Log.e(this::class.simpleName, "HttpException", ex)
+            }
+            listingRoot
+        }
+    }
 
 }

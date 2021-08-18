@@ -40,8 +40,8 @@ class PostGridModelFactory @Inject constructor(
         val posts = mapper.mapToListOfPosts(listingRoot)?.map {
             PostGridItem(
                 id = it.id,
-                title = it.title,
-                thumbnailUrl = it.thumbnail
+                title = it.title ?: "",
+                thumbnailUrl = it.thumbnail ?: ""
             )
         } ?: emptyList()
         return PostGrid(posts)
