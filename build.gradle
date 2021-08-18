@@ -35,6 +35,7 @@ buildscript {
         composeVersion = '1.0.1'
         coreTestingVersion = '2.0.0'
         espressoVersion = '3.4.0'
+        fragmentKtxVersion = '1.3.6'
         gradleVersion = '7.0.0'
         gsonVersion = '2.8.7'
         hiltVersion = '2.38.1'
