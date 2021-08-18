@@ -30,9 +30,7 @@ package com.nlasagni.redditpicgrid.data
 class PostListMapper {
 
     fun mapToListOfPosts(listingRoot: ListingRoot?): List<Post>? {
-        return listingRoot?.content?.children?.map {
-            it.post
-        }
+        return listingRoot?.content?.children?.mapNotNull { it.post }
     }
 
 }
