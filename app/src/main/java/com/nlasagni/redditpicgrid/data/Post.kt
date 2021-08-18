@@ -33,10 +33,10 @@ import com.google.gson.annotations.SerializedName
  */
 data class Post (
     @field:SerializedName("id") val id: String,
-    @field:SerializedName("title") val title: String,
-    @field:SerializedName("author") val author: String,
-    @field:SerializedName("ups") val ups: Long,
-    @field:SerializedName("downs") val down: Long,
-    @field:SerializedName("thumbnail") val thumbnail: String,
-    @field:SerializedName("preview") val preview: Preview
+    @field:SerializedName("title") val title: String?,
+    @field:SerializedName("author") val author: String?,
+    @field:SerializedName("ups") val ups: Long?,
+    @field:SerializedName("downs") val down: Long?,
+    @field:SerializedName("thumbnail") val thumbnail: String?,
+    @field:SerializedName("preview") val preview: Preview?
 )

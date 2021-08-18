@@ -31,4 +31,4 @@ import com.google.gson.annotations.SerializedName
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class Preview(@field:SerializedName("images") val images: List<Image>)
+data class Preview(@field:SerializedName("images") val images: List<Image>?)

@@ -32,5 +32,5 @@ import com.google.gson.annotations.SerializedName
  * Created by Nicola Lasagni on 18/08/2021.
  */
 data class ListingRoot (
-    @field:SerializedName("data") val content: ListingContent
+    @field:SerializedName("data") val content: ListingContent?
 )

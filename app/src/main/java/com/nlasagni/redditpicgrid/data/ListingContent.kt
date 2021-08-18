@@ -32,5 +32,5 @@ import com.google.gson.annotations.SerializedName
  * Created by Nicola Lasagni on 18/08/2021.
  */
 data class ListingContent(
-    @field:SerializedName("children") val children: List<ListingContentChild>
+    @field:SerializedName("children") val children: List<ListingContentChild>?
 )

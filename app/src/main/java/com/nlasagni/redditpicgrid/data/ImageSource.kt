@@ -31,4 +31,4 @@ import com.google.gson.annotations.SerializedName
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class ImageSource(@field:SerializedName("url") val url: String)
+data class ImageSource(@field:SerializedName("url") val url: String?)
