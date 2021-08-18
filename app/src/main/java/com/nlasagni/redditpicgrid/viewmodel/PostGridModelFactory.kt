@@ -24,20 +24,16 @@
 
 package com.nlasagni.redditpicgrid.viewmodel
 
-import android.content.Context
-import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.data.ListingRoot
 import com.nlasagni.redditpicgrid.data.PostListMapper
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
-import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
 class PostGridModelFactory @Inject constructor(
-    @ActivityContext private val context: Context,
     private val mapper: PostListMapper) {
 
     fun createModel(listingRoot: ListingRoot?): PostGrid {
@@ -48,7 +44,7 @@ class PostGridModelFactory @Inject constructor(
                 thumbnailUrl = it.thumbnail
             )
         } ?: emptyList()
-        return PostGrid(posts, context.resources.getString(R.string.no_post_match_search))
+        return PostGrid(posts)
     }
 
 }

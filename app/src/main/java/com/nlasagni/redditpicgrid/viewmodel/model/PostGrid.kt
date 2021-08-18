@@ -27,7 +27,4 @@ package com.nlasagni.redditpicgrid.viewmodel.model
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
-class PostGrid(
-    val posts: List<PostGridItem>,
-    val emptyMessage: String
-)
+data class PostGrid(val posts: List<PostGridItem>)
