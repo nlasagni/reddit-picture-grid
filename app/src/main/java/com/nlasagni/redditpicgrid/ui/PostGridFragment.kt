@@ -34,12 +34,14 @@ import androidx.lifecycle.lifecycleScope
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.viewmodel.PostGridViewModel
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
+@AndroidEntryPoint
 class PostGridFragment : Fragment() {
 
     private val viewModel: PostGridViewModel by viewModels()
