@@ -43,6 +43,7 @@ buildscript {
         ktxVersion = '1.6.0'
         lifecycleVersion = '2.3.1'
         materialVersion = '1.4.0'
+        mockWebServer = '4.9.1'
         okhttpLoggingVersion = '4.7.2'
         retrofitVersion = '2.9.0'
         testExtJunit = '1.1.3'
