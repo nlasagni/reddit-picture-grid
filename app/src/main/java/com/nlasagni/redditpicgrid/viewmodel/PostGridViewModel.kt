@@ -42,7 +42,7 @@ class PostGridViewModel @Inject constructor(
     private val viewModelFactory: PostGridModelFactory
 ) : ViewModel() {
 
-    private val postGridLiveData = MutableLiveData<PostGrid>()
+    val postGridLiveData = MutableLiveData<PostGrid>()
 
     fun search(keyword: String) {
         viewModelScope.launch {
