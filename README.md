@@ -1,3 +1,5 @@
+![Android CI status](https://github.com/nlasagni/reddit-picture-grid/actions/workflows/android.yml/badge.svg)
+
 # RedditPicGrid Android app
 
 A technical assignment that involves making an Android app that shows pictures on a grid, coming from Reddit APIs.
