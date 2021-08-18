@@ -24,4 +24,5 @@
 
 <resources>
     <string name="app_name">RedditPicGrid</string>
+    <string name="no_post_match_search">No content matches the searched word</string>
 </resources>
