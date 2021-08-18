@@ -30,7 +30,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.viewmodel.PostGridViewModel
@@ -63,7 +62,7 @@ class PostGridFragment : Fragment() {
     }
 
     private fun renderViewModel(postGrid: PostGrid) {
-
+        TODO("Not implemented")
     }
 
     private fun search(keyword: String) {
