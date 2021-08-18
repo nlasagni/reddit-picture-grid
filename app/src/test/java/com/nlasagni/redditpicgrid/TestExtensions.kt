@@ -24,18 +24,24 @@
 
 package com.nlasagni.redditpicgrid
 
-import org.junit.Test
-
-import org.junit.Assert.*
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.MockWebServer
+import okio.buffer
+import okio.source
+import java.nio.charset.StandardCharsets
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * Created by Nicola Lasagni on 16/08/2021.
  */
-class ExampleUnitTest {
-    @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+internal fun MockWebServer.enqueueResponse(fileName: String, code: Int) {
+    val inputStream = javaClass.classLoader?.getResourceAsStream("api-response/$fileName")
+
+    val source = inputStream?.let { inputStream.source().buffer() }
+    source?.let {
+        enqueue(
+            MockResponse()
+                .setResponseCode(code)
+                .setBody(source.readString(StandardCharsets.UTF_8))
+        )
     }
 }
