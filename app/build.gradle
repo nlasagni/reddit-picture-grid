@@ -25,6 +25,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.kotlin.kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -72,6 +74,7 @@ android {
 }
 
 dependencies {
+    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "com.google.android.material:material:$materialVersion"
@@ -84,6 +87,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
 
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
