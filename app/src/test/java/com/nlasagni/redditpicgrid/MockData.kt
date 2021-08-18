@@ -31,6 +31,7 @@ import com.nlasagni.redditpicgrid.data.*
  */
 object MockData {
 
+    val postId = "p62b72"
     val postTitle = "Where is our food?"
     val postAuthor = "mattia_cecchi"
     val postUps = 917.toLong()
@@ -40,6 +41,7 @@ object MockData {
     val postImageSourceUrl = "https://preview.redd.it/" +
             "8wpoabiyqwh71.jpg?auto=webp&amp;s=abd29248c3129bbd64fdddfac136b9c8b4610c1c"
     val post = Post(
+        id = postId,
         title = postTitle,
         author = postAuthor,
         ups = postUps,

@@ -32,6 +32,7 @@ import com.google.gson.annotations.SerializedName
  * Created by Nicola Lasagni on 18/08/2021.
  */
 data class Post (
+    @field:SerializedName("id") val id: String,
     @field:SerializedName("title") val title: String,
     @field:SerializedName("author") val author: String,
     @field:SerializedName("ups") val ups: Long,
