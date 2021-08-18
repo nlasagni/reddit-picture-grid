@@ -27,8 +27,15 @@ package com.nlasagni.redditpicgrid.data
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data class that represents an image of a [Preview] from Reddit APIs.
+ * Data class that represents a subreddit from Reddit APIs.
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class Image(@field:SerializedName("source") val source: ImageSource)
+data class Post (
+    @field:SerializedName("title") val title: String,
+    @field:SerializedName("author") val author: String,
+    @field:SerializedName("ups") val ups: Long,
+    @field:SerializedName("downs") val down: Long,
+    @field:SerializedName("thumbnail") val thumbnail: String,
+    @field:SerializedName("preview") val preview: Preview
+)

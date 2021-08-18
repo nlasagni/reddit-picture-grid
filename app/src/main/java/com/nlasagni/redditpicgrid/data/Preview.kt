@@ -27,11 +27,7 @@ package com.nlasagni.redditpicgrid.data
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data class that represents a preview from Reddit APIs.
- *
- * Not all of the fields returned from the API are represented here; only the ones used in this
- * project are listed below. For a full list of fields, consult the API documentation
- * [here](https://www.reddit.com/dev/api/#GET_top).
+ * Data class that represents the images-preview of a [Post] from Reddit APIs.
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */

@@ -27,8 +27,10 @@ package com.nlasagni.redditpicgrid.data
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data class that represents an image of a [Preview] from Reddit APIs.
+ * Data class that represents the content of a child of a [ListingContent].
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class Image(@field:SerializedName("source") val source: ImageSource)
+data class ListingContentChild(
+    @field:SerializedName("data") val post: Post
+)
