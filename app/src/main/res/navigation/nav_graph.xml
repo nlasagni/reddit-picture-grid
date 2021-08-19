@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/postGridFragment"
-        android:name="com.nlasagni.redditpicgrid.postgrid.PostGridFragment"
+        android:name="com.nlasagni.redditpicgrid.ui.postgrid.PostGridFragment"
         android:label="PostGridFragment" >
         <action
             android:id="@+id/action_postGridFragment_to_postDetailFragment"
@@ -37,6 +37,6 @@
     </fragment>
     <fragment
         android:id="@+id/postDetailFragment"
-        android:name="com.nlasagni.redditpicgrid.postdetail.PostDetailFragment"
+        android:name="com.nlasagni.redditpicgrid.ui.postdetail.PostDetailFragment"
         android:label="PostDetailFragment" />
 </navigation>

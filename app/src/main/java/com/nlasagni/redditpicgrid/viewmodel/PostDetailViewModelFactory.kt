@@ -22,28 +22,29 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postgrid
+package com.nlasagni.redditpicgrid.viewmodel
 
 import com.nlasagni.redditpicgrid.data.local.Post
-import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
-import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import javax.inject.Inject
 
 /**
- * Created by Nicola Lasagni on 18/08/2021.
+ * Created by Nicola Lasagni on 19/08/2021.
  */
-class PostGridModelFactory @Inject constructor() {
+class PostDetailViewModelFactory @Inject constructor() {
 
-    fun createModel(posts: List<Post>): PostGrid {
-        val postGridItems = posts.map {
-            val url = it.imageUrl
-            PostGridItem(
+    fun createModel(posts: List<Post>): List<PostDetail> {
+        return posts.map {
+            PostDetail(
                 id = it.id,
                 title = it.title,
-                imageUrl = url,
+                author = it.author,
+                ups = it.ups.toString(),
+                down = it.down.toString(),
+                imageUrl = it.imageUrl
             )
         }
-        return PostGrid(postGridItems)
     }
 
 }

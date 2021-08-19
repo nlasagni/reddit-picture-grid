@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postdetail
+package com.nlasagni.redditpicgrid.ui.postdetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -32,7 +32,9 @@ import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.postgrid.PostGridViewModel
+import com.nlasagni.redditpicgrid.viewmodel.PostViewModel
+import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_detail.*
 
@@ -42,7 +44,7 @@ import kotlinx.android.synthetic.main.post_detail.*
 @AndroidEntryPoint
 class PostDetailFragment : Fragment() {
 
-    private val viewModel: PostGridViewModel by activityViewModels()
+    private val viewModel: PostViewModel by activityViewModels()
     private lateinit var pagerAdapter: PostDetailPagerAdapter
 
     override fun onCreateView(
@@ -51,16 +53,24 @@ class PostDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.post_detail, container, false)
+        subscribeForUpdates()
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.loadPostDetails()
+    }
+
+    private fun subscribeForUpdates() {
+        viewModel.postDetailsLiveData.observe(viewLifecycleOwner) {
+            renderViewModel(it)
+        }
+    }
+
+    private fun renderViewModel(postDetails: List<PostDetail>) {
         context?.let {
-            pagerAdapter = PostDetailPagerAdapter(
-                it,
-                viewModel.postGridLiveData.value?.posts ?: emptyList()
-            )
+            pagerAdapter = PostDetailPagerAdapter(it,postDetails)
             postDetailPager.adapter = pagerAdapter
             postDetailPager.doOnPreDraw {
                 postDetailPager.setCurrentItem(viewModel.selectedPostIndex, false)

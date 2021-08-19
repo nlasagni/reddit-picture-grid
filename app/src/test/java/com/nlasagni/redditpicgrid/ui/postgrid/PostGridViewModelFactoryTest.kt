@@ -22,9 +22,34 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postgrid.model
+package com.nlasagni.redditpicgrid.ui.postgrid
+
+import com.nlasagni.redditpicgrid.MockData
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.PostGridModelFactory
+import org.junit.Assert
+import org.junit.Test
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class PostGridItem(val id: String, val title: String, val imageUrl: String)
+class PostGridViewModelFactoryTest {
+
+    private val mapper = RemotePostListMapper()
+
+    @Test
+    fun `should create a model for UI from a listing correctly`()  {
+        val viewModelFactory = PostGridModelFactory()
+        val postGridItem = PostGridItem(
+            MockData.localPost.id,
+            MockData.localPost.title,
+            MockData.localPost.imageUrl
+        )
+        val expected = PostGrid(listOf(postGridItem))
+        val uiModel = viewModelFactory.createModel(listOf(MockData.localPost))
+        Assert.assertEquals(expected, uiModel)
+    }
+
+}

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postdetail
+package com.nlasagni.redditpicgrid.ui.postdetail
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -31,7 +31,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
 import com.ortiz.touchview.TouchImageView
 import com.squareup.picasso.Picasso
 
@@ -40,22 +40,28 @@ import com.squareup.picasso.Picasso
  */
 class PostDetailPagerAdapter(
     private val context: Context,
-    private val postGridItems: List<PostGridItem>
+    private val postDetails: List<PostDetail>
 ): PagerAdapter() {
 
     override fun getCount(): Int {
-        return postGridItems.size
+        return postDetails.size
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.post_detail_item, container, false)
-        val postGridItem = postGridItems[position]
+        val postDetail = postDetails[position]
         val title: TextView = view.findViewById(R.id.postTitle)
+        val author: TextView = view.findViewById(R.id.postAuthor)
+        val ups: TextView = view.findViewById(R.id.postUps)
+        val down: TextView = view.findViewById(R.id.postDown)
         val image: TouchImageView = view.findViewById(R.id.postImage)
-        title.text = postGridItem.title
+        title.text = postDetail.title
+        author.text = postDetail.author
+        ups.text = postDetail.ups
+        down.text = postDetail.down
         Picasso.get()
-            .load(postGridItem.imageUrl)
+            .load(postDetail.imageUrl)
             .placeholder(R.mipmap.ic_launcher)
             .into(image)
         container.addView(view)

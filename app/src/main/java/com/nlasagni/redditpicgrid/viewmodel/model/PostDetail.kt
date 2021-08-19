@@ -22,39 +22,16 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postgrid
-
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.nlasagni.redditpicgrid.data.PostDataSource
-import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
-import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import javax.inject.Inject
+package com.nlasagni.redditpicgrid.viewmodel.model
 
 /**
- * Created by Nicola Lasagni on 18/08/2021.
+ * Created by Nicola Lasagni on 19/08/2021.
  */
-@HiltViewModel
-class PostGridViewModel @Inject constructor(
-    private val dataSource: PostDataSource,
-    private val viewModelFactory: PostGridModelFactory
-) : ViewModel() {
-
-    val postGridLiveData = MutableLiveData<PostGrid>()
-    var selectedPostIndex = 0
-
-    fun search(keyword: String) {
-        viewModelScope.launch {
-            postGridLiveData.value =
-                viewModelFactory.createModel(dataSource.searchPostsWithPictures(keyword))
-        }
-    }
-
-    fun selectPost(position: Int) {
-        selectedPostIndex = position
-    }
-
-}
+data class PostDetail(
+    val id: String,
+    val title: String,
+    val author: String,
+    val ups: String,
+    val down: String,
+    val imageUrl: String
+)

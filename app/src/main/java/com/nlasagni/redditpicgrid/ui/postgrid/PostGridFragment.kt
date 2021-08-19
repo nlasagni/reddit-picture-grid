@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postgrid
+package com.nlasagni.redditpicgrid.ui.postgrid
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -31,13 +31,13 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
-import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_grid.*
 import kotlinx.coroutines.Job
@@ -49,7 +49,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PostGridFragment : Fragment(), PostGridAdapter.OnItemClickListener {
 
-    private val viewModel: PostGridViewModel by activityViewModels()
+    private val viewModel: PostViewModel by activityViewModels()
     private var searchJob: Job? = null
     private val adapter = PostGridAdapter(this)
     private val columnCount = 2

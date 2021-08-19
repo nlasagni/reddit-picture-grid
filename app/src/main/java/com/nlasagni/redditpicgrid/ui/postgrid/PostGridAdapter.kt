@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postgrid
+package com.nlasagni.redditpicgrid.ui.postgrid
 
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +33,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
 import com.squareup.picasso.Picasso
 
 /**

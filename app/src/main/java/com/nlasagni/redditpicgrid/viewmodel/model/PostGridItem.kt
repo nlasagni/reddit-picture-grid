@@ -22,30 +22,9 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.postdetail
-
-import android.content.Context
-import android.util.AttributeSet
-import android.view.View
-import androidx.viewpager.widget.ViewPager
-import com.ortiz.touchview.TouchImageView
+package com.nlasagni.redditpicgrid.viewmodel.model
 
 /**
- * Created by Nicola Lasagni on 19/08/2021.
+ * Created by Nicola Lasagni on 18/08/2021.
  */
-class ZoomableViewPager(context: Context, attrs: AttributeSet): ViewPager(context, attrs) {
-    override fun canScroll(
-        view: View?,
-        checkViewForScrollability: Boolean,
-        deltaScrolledPx: Int,
-        touchPointX: Int,
-        touchPointY: Int
-    ): Boolean {
-        if (view is TouchImageView) {
-            return view.canScrollHorizontally(-deltaScrolledPx)
-        } else {
-            return super.canScroll(view, checkViewForScrollability, deltaScrolledPx, touchPointX, touchPointY)
-        }
-    }
-
-}
+data class PostGridItem(val id: String, val title: String, val imageUrl: String)
