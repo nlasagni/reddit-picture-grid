@@ -24,6 +24,7 @@
 
 package com.nlasagni.redditpicgrid.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
+import com.squareup.picasso.Picasso
 
 /**
  * Created by Nicola Lasagni on 19/08/2021.
@@ -49,7 +51,7 @@ class PostGridAdapter : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(Di
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = getItem(position)
         holder.title.text = post.title
-        //TODO: Load image from URL
+        Picasso.get().load(post.imageUrl).error(android.R.drawable.stat_notify_error).into(holder.image)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
