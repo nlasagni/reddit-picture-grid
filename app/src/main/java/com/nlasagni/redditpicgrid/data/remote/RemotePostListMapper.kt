@@ -22,15 +22,15 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
+package com.nlasagni.redditpicgrid.data.remote
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
-class PostListMapper {
+class RemotePostListMapper {
 
-    fun mapToListOfPosts(listingRoot: ListingRoot?): List<Post>? {
-        return listingRoot?.content?.children?.mapNotNull { it.post }
+    fun mapToListOfPosts(listingRoot: ListingRoot?): List<Post> {
+        return listingRoot?.content?.children?.mapNotNull { it.post } ?: emptyList()
     }
 
 }
