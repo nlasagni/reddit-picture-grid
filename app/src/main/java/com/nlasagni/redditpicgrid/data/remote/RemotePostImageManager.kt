@@ -22,16 +22,12 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
-
-import com.nlasagni.redditpicgrid.data.remote.ImageCheckStrategy
-import com.nlasagni.redditpicgrid.data.remote.Post
-import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
+package com.nlasagni.redditpicgrid.data.remote
 
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */
-class PostImageManager : ImageCheckStrategy, RetrievePostImageUrlStrategy {
+class RemotePostImageManager : ImageCheckStrategy, RetrievePostImageUrlStrategy {
 
     private val imageTypeSuffixSet = setOf(".jpg", ".jpeg", ".png")
 
