@@ -90,6 +90,13 @@ class PostGridFragment : Fragment(), PostGridAdapter.OnItemClickListener {
     }
 
     private fun renderViewModel(postGrid: PostGrid) {
+        if (postGrid.posts.isNotEmpty()) {
+            gridView.visibility = View.VISIBLE
+            emptyView.visibility = View.GONE
+        } else {
+            gridView.visibility = View.GONE
+            emptyView.visibility = View.VISIBLE
+        }
         adapter.submitList(postGrid.posts)
     }
 
