@@ -24,50 +24,46 @@
 
 package com.nlasagni.redditpicgrid.postdetail
 
-import android.os.Bundle
-import android.util.Log
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.doOnPreDraw
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.postgrid.PostGridViewModel
-import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.post_detail.*
+import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.squareup.picasso.Picasso
 
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */
-@AndroidEntryPoint
-class PostDetailFragment : Fragment() {
+class PostDetailPagerAdapter(
+    private val context: Context,
+    private val postGridItems: List<PostGridItem>
+): RecyclerView.Adapter<PostDetailPagerAdapter.PageHolder>() {
 
-    private val viewModel: PostGridViewModel by activityViewModels()
-    private lateinit var pagerAdapter: PostDetailPagerAdapter
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.post_detail, container, false)
-        return view
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostDetailPagerAdapter.PageHolder {
+        return PageHolder(
+            LayoutInflater.from(context).inflate(R.layout.post_detail_item, parent, false)
+        )
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        context?.let {
-            pagerAdapter = PostDetailPagerAdapter(
-                it,
-                viewModel.postGridLiveData.value?.posts ?: emptyList()
-            )
-            Log.e(PostDetailFragment::class.simpleName, "Selected item: ${viewModel.selectedPostIndex}")
-            postDetailPager.adapter = pagerAdapter
-            postDetailPager.doOnPreDraw {
-                postDetailPager.setCurrentItem(viewModel.selectedPostIndex, false)
-            }
+    override fun onBindViewHolder(holder: PostDetailPagerAdapter.PageHolder, position: Int) {
+        holder.bind(postGridItems[position])
+    }
+
+    override fun getItemCount(): Int {
+        return postGridItems.size
+    }
+
+    inner class PageHolder(view: View): RecyclerView.ViewHolder(view) {
+        private val image: ImageView = itemView.findViewById(R.id.postImage)
+
+        fun bind(postGridItem: PostGridItem) {
+            Picasso.get()
+                .load(postGridItem.imageUrl)
+                .error(android.R.drawable.stat_notify_error)
+                .into(image)
         }
     }
-
 }
