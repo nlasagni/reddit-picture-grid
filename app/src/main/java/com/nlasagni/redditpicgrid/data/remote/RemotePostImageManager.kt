@@ -38,10 +38,6 @@ class RemotePostImageManager : CheckImageStrategy, RetrievePostImageUrlStrategy 
                 endsWithImageSuffix(post.url)
     }
 
-    override fun retrieveThumbnailUrl(post: Post): String? {
-        return post.thumbnail
-    }
-
     override fun retrieveImageUrl(post: Post): String {
         // Here we assume that a post has at least one image url
         val imageUrl = post.getFirstImage()?.url ?: ""

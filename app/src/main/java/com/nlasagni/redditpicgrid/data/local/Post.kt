@@ -33,6 +33,5 @@ data class Post(
     val author: String,
     val ups: Long,
     val down: Long,
-    val thumbnailUrl: String?,
     val imageUrl: String,
 )

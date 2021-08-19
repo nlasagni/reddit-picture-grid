@@ -60,7 +60,6 @@ class PostDataSource @Inject constructor(
                             author = it.author ?: "",
                             ups = it.ups ?: 0,
                             down = it.down ?: 0,
-                            thumbnailUrl = retrievePostImageUrlStrategy.retrieveThumbnailUrl(it),
                             imageUrl = retrievePostImageUrlStrategy.retrieveImageUrl(it)
                         )
                     }
