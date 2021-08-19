@@ -41,7 +41,8 @@ In particular the main classes involved in the solution are:
 
 In order to achieve the main goals of the assignment, the following dependencies has been used:
 
-- [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection
-- [Gson](https://github.com/google/gson), [Retrofit2](https://square.github.io/retrofit/) for making HTTP calls and convert JSON to objects
-- [Picasso](https://square.github.io/picasso/) for loading images
-- [TouchImageView](https://github.com/MikeOrtiz/TouchImageView) for making image zoomable
+- [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection.
+- [Gson](https://github.com/google/gson), [Retrofit2](https://square.github.io/retrofit/) for making HTTP calls and convert JSON to objects.
+- [Navigation](https://developer.android.com/guide/navigation/navigation-getting-started) for navigating between Fragments.
+- [Picasso](https://square.github.io/picasso/) for loading images.
+- [TouchImageView](https://github.com/MikeOrtiz/TouchImageView) for making image zoomable.
