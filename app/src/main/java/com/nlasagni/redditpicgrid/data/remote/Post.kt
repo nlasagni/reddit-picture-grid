@@ -33,6 +33,7 @@ import com.google.gson.annotations.SerializedName
  */
 data class Post (
     @field:SerializedName("id") val id: String,
+    @field:SerializedName("post_hint") val hint: String,
     @field:SerializedName("title") val title: String?,
     @field:SerializedName("author") val author: String?,
     @field:SerializedName("ups") val ups: Long?,
@@ -41,6 +42,11 @@ data class Post (
     @field:SerializedName("url") val url: String?,
     @field:SerializedName("preview") val preview: Preview?
 ) {
+    companion object {
+        const val POST_HINT_IMAGE = "image"
+        const val POST_HINT_LINK = "link"
+    }
+
     fun getFirstImage(): ImageSource? {
         return preview?.images?.first()?.source
     }
