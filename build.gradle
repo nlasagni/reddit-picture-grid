@@ -47,6 +47,7 @@ buildscript {
         mockWebServer = '4.9.1'
         navigationVersion = '2.3.5'
         okhttpLoggingVersion = '4.7.2'
+        picassoVersion = '2.8'
         recyclerViewVersion = '1.2.1'
         retrofitVersion = '2.9.0'
         testExtJunit = '1.1.3'
