@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.ui
+package com.nlasagni.redditpicgrid.postgrid
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -34,8 +34,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nlasagni.redditpicgrid.R
-import com.nlasagni.redditpicgrid.viewmodel.PostGridViewModel
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
+import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_grid.*
 import kotlinx.coroutines.Job

@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.viewmodel
+package com.nlasagni.redditpicgrid.postgrid
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nlasagni.redditpicgrid.data.PostDataSource
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
+import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

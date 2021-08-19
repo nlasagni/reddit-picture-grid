@@ -29,6 +29,6 @@
 
     <fragment
         android:id="@+id/postGridFragment"
-        android:name="com.nlasagni.redditpicgrid.ui.PostGridFragment"
+        android:name="com.nlasagni.redditpicgrid.postgrid.PostGridFragment"
         android:label="PostGridFragment" />
 </navigation>

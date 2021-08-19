@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.viewmodel.model
+package com.nlasagni.redditpicgrid.postgrid.model
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
