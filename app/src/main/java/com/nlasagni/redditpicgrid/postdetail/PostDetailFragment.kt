@@ -25,7 +25,6 @@
 package com.nlasagni.redditpicgrid.postdetail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -62,7 +61,6 @@ class PostDetailFragment : Fragment() {
                 it,
                 viewModel.postGridLiveData.value?.posts ?: emptyList()
             )
-            Log.e(PostDetailFragment::class.simpleName, "Selected item: ${viewModel.selectedPostIndex}")
             postDetailPager.adapter = pagerAdapter
             postDetailPager.doOnPreDraw {
                 postDetailPager.setCurrentItem(viewModel.selectedPostIndex, false)
