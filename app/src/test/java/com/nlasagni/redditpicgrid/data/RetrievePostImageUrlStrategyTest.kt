@@ -25,7 +25,6 @@
 package com.nlasagni.redditpicgrid.data
 
 import com.nlasagni.redditpicgrid.MockData
-import com.nlasagni.redditpicgrid.data.remote.CheckImageStrategy
 import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
 import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
 import org.junit.Assert
