@@ -24,7 +24,10 @@
 
 package com.nlasagni.redditpicgrid.di
 
+import com.nlasagni.redditpicgrid.data.remote.ImageCheckStrategy
+import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
 import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
+import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,12 +39,26 @@ import javax.inject.Singleton
  */
 @Module
 @InstallIn(SingletonComponent::class)
-object PostListMapperModule {
+object RemoteDataMapperModule {
+
+    private val remotePostImageManager = RemotePostImageManager()
 
     @Singleton
     @Provides
     fun providePostListMapper(): RemotePostListMapper {
         return RemotePostListMapper()
+    }
+
+    @Singleton
+    @Provides
+    fun provideImageCheckStrategy(): ImageCheckStrategy {
+        return remotePostImageManager
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrievePostImageUrlStrategy(): RetrievePostImageUrlStrategy {
+        return remotePostImageManager
     }
 
 }
