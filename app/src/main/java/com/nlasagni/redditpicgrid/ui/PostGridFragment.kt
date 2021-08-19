@@ -28,13 +28,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.viewmodel.PostGridViewModel
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.post_grid.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
@@ -46,6 +49,7 @@ class PostGridFragment : Fragment() {
 
     private val viewModel: PostGridViewModel by viewModels()
     private var searchJob: Job? = null
+    private val adapter = PostGridAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +61,25 @@ class PostGridFragment : Fragment() {
         return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        gridView.layoutManager = GridLayoutManager(context,2)
+        gridView.adapter = adapter
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Empty
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                search(newText ?: "")
+                return true
+            }
+
+        })
+    }
+
     private fun subscribeForUpdates() {
         viewModel.postGridLiveData.observe(viewLifecycleOwner) {
             renderViewModel(it)
@@ -64,7 +87,7 @@ class PostGridFragment : Fragment() {
     }
 
     private fun renderViewModel(postGrid: PostGrid) {
-        TODO("Not implemented")
+        adapter.submitList(postGrid.posts)
     }
 
     private fun search(keyword: String) {
