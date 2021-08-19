@@ -25,10 +25,9 @@
 package com.nlasagni.redditpicgrid.ui.postgrid
 
 import com.nlasagni.redditpicgrid.MockData
-import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
+import com.nlasagni.redditpicgrid.viewmodel.PostGridModelFactory
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
-import com.nlasagni.redditpicgrid.viewmodel.PostGridModelFactory
 import org.junit.Assert
 import org.junit.Test
 
@@ -37,10 +36,8 @@ import org.junit.Test
  */
 class PostGridViewModelFactoryTest {
 
-    private val mapper = RemotePostListMapper()
-
     @Test
-    fun `should create a model for UI from a listing correctly`()  {
+    fun `should create a model for PostGrid UI from a list of post correctly`()  {
         val viewModelFactory = PostGridModelFactory()
         val postGridItem = PostGridItem(
             MockData.localPost.id,

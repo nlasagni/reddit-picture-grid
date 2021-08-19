@@ -61,6 +61,25 @@ object MockData {
             )
         ),
     )
+    val notImagePost = Post(
+        id = postId,
+        hint = "",
+        title = postTitle,
+        author = postAuthor,
+        ups = postUps,
+        down = postDowns,
+        thumbnail = "",
+        url = "",
+        preview = Preview(
+            listOf(
+                Image(
+                    source = ImageSource(
+                        url = ""
+                    )
+                )
+            )
+        ),
+    )
     val remoteListing = ListingRoot(
         content = ListingContent(
             children = listOf(
@@ -76,7 +95,6 @@ object MockData {
         author = postAuthor,
         ups = postUps,
         down = postDowns,
-        thumbnailUrl = postThumbnail,
         imageUrl = postImageSourceUrl
     )
 

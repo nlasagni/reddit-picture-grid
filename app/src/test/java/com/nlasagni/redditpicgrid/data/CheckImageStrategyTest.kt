@@ -22,13 +22,24 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data.remote
+package com.nlasagni.redditpicgrid.data
+
+import com.nlasagni.redditpicgrid.MockData
+import com.nlasagni.redditpicgrid.data.remote.CheckImageStrategy
+import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
+import org.junit.Assert
+import org.junit.Test
 
 /**
- * Created by Nicola Lasagni on 19/08/2021.
+ * Created by Nicola Lasagni on 20/08/2021.
  */
-interface RetrievePostImageUrlStrategy {
+class CheckImageStrategyTest {
 
-    fun retrieveImageUrl(post: Post): String
+    @Test
+    fun `should be able to check if a Post is related to an image`()  {
+        val strategy: CheckImageStrategy = RemotePostImageManager()
+        Assert.assertTrue(strategy.isImage(MockData.remotePost))
+        Assert.assertFalse(strategy.isImage(MockData.notImagePost))
+    }
 
 }

@@ -22,13 +22,33 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data.remote
+package com.nlasagni.redditpicgrid.ui.postgrid
+
+import com.nlasagni.redditpicgrid.MockData
+import com.nlasagni.redditpicgrid.viewmodel.PostDetailViewModelFactory
+import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
+import org.junit.Assert
+import org.junit.Test
 
 /**
- * Created by Nicola Lasagni on 19/08/2021.
+ * Created by Nicola Lasagni on 18/08/2021.
  */
-interface RetrievePostImageUrlStrategy {
+class PostDetailViewModelFactoryTest {
 
-    fun retrieveImageUrl(post: Post): String
+    @Test
+    fun `should create a model for PostDetail UI from a list of post correctly`()  {
+        val viewModelFactory = PostDetailViewModelFactory()
+        val postDetail = PostDetail(
+            MockData.localPost.id,
+            MockData.localPost.title,
+            MockData.localPost.author,
+            MockData.localPost.ups.toString(),
+            MockData.localPost.down.toString(),
+            MockData.localPost.imageUrl
+        )
+        val expected = listOf(postDetail)
+        val uiModel = viewModelFactory.createModel(listOf(MockData.localPost))
+        Assert.assertEquals(expected, uiModel)
+    }
 
 }

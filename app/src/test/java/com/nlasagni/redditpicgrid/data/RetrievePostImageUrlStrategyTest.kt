@@ -22,13 +22,25 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data.remote
+package com.nlasagni.redditpicgrid.data
+
+import com.nlasagni.redditpicgrid.MockData
+import com.nlasagni.redditpicgrid.data.remote.CheckImageStrategy
+import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
+import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
+import org.junit.Assert
+import org.junit.Test
 
 /**
- * Created by Nicola Lasagni on 19/08/2021.
+ * Created by Nicola Lasagni on 20/08/2021.
  */
-interface RetrievePostImageUrlStrategy {
+class RetrievePostImageUrlStrategyTest {
 
-    fun retrieveImageUrl(post: Post): String
+    @Test
+    fun `should be able to retrieve the image url from a Post`()  {
+        val strategy: RetrievePostImageUrlStrategy = RemotePostImageManager()
+        Assert.assertEquals(MockData.postImageSourceUrl, strategy.retrieveImageUrl(MockData.remotePost))
+    }
+
 
 }
