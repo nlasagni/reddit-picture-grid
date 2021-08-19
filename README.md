@@ -28,3 +28,20 @@ Add a search field at the top. When the user types something, they see the new c
 3. A testable app shows how much you care about quality.
 4. There must be some UI transactions when selecting the photo.
 5. Freestyle. We love developers with initiatives. If you have any idea how to improve the free project do it.
+
+## 1.4 Solution
+
+The app has been designed following the 
+[official guide to app architecture](https://developer.android.com/jetpack/guide#show-in-progress-operations).
+In particular the main classes involved in the solution are:
+
+- **PostDataSource:** responsible of retrieving posts that match the keyword searched.
+- **PostViewModel:** responsible of manipulating data coming from the datasource and make them ui-ready.
+- **PostGridFragment, PostDetailFragment:** Fragments that represent the UI of the app. 
+
+In order to achieve the main goals of the assignment, the following dependencies has been used:
+
+- [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for dependency injection
+- [Gson](https://github.com/google/gson), [Retrofit2](https://square.github.io/retrofit/) for making HTTP calls and convert JSON to objects
+- [Picasso](https://square.github.io/picasso/) for loading images
+- [TouchImageView](https://github.com/MikeOrtiz/TouchImageView) for making image zoomable
