@@ -30,6 +30,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -48,10 +49,10 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class PostGridFragment : Fragment(), PostGridAdapter.OnItemClickListener {
 
-    private val viewModel: PostGridViewModel by viewModels()
+    private val viewModel: PostGridViewModel by activityViewModels()
     private var searchJob: Job? = null
     private val adapter = PostGridAdapter(this)
-    private val columnCount = 3
+    private val columnCount = 2
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -99,7 +100,8 @@ class PostGridFragment : Fragment(), PostGridAdapter.OnItemClickListener {
         }
     }
 
-    override fun onItemClick(postGridItem: PostGridItem) {
+    override fun onItemClick(postGridItem: PostGridItem, position: Int) {
+        viewModel.selectedPostIndex = position
         findNavController().navigate(R.id.action_postGridFragment_to_postDetailFragment)
     }
 

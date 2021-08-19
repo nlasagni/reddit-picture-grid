@@ -51,27 +51,30 @@ class PostGridAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position), itemClickListener)
+        holder.bind(getItem(position), position, itemClickListener)
     }
 
-    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         private var title: TextView = itemView.findViewById(R.id.postTitle)
         private val image: ImageView = itemView.findViewById(R.id.postImage)
 
-        fun bind(postGridItem: PostGridItem, itemClickListener: OnItemClickListener) {
+        fun bind(postGridItem: PostGridItem, position: Int, itemClickListener: OnItemClickListener) {
             title.text = postGridItem.title
             Picasso.get()
                 .load(postGridItem.imageUrl)
-                .error(android.R.drawable.stat_notify_error)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
+                .fit()
+                .centerCrop()
                 .into(image)
             view.setOnClickListener {
-                itemClickListener.onItemClick(postGridItem)
+                itemClickListener.onItemClick(postGridItem, position)
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(postGridItem: PostGridItem)
+        fun onItemClick(postGridItem: PostGridItem, position: Int)
     }
 
 }
