@@ -40,4 +40,8 @@ data class Post (
     @field:SerializedName("thumbnail") val thumbnail: String?,
     @field:SerializedName("url") val url: String?,
     @field:SerializedName("preview") val preview: Preview?
-)
+) {
+    fun getFirstImage(): ImageSource? {
+        return preview?.images?.first()?.source
+    }
+}
