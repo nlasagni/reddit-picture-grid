@@ -60,13 +60,6 @@ android {
         jvmTarget = '1.8'
         useIR = true
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion rootProject.composeVersion
-        kotlinCompilerVersion rootProject.kotlinVersion
-    }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -79,14 +72,10 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "com.google.android.material:material:$materialVersion"
-    implementation "androidx.compose.ui:ui:$composeVersion"
-    implementation "androidx.compose.material:material:$composeVersion"
-    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     implementation "androidx.cardview:cardview:$cardViewVersion"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-    implementation "androidx.activity:activity-compose:$appCompatVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$navigationVersion"
@@ -102,6 +91,4 @@ dependencies {
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServer"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
-    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
 }
