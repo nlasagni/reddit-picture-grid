@@ -38,5 +38,6 @@ data class Post (
     @field:SerializedName("ups") val ups: Long?,
     @field:SerializedName("downs") val down: Long?,
     @field:SerializedName("thumbnail") val thumbnail: String?,
+    @field:SerializedName("url") val url: String?,
     @field:SerializedName("preview") val preview: Preview?
 )
