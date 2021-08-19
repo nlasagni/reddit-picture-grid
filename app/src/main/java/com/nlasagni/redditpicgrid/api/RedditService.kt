@@ -42,7 +42,7 @@ import retrofit2.http.Path
  */
 interface RedditService {
 
-    @GET("r/{keyword}/top.json")
+    @GET("r/{keyword}/top.json?raw_json=1")
     suspend fun searchSubredditPosts(@Path("keyword") keyword: String): ListingRoot?
 
     companion object {
