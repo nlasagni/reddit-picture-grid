@@ -29,6 +29,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
@@ -58,11 +59,16 @@ class PostDetailPagerAdapter(
 
     inner class PageHolder(view: View): RecyclerView.ViewHolder(view) {
         private val image: ImageView = itemView.findViewById(R.id.postImage)
+        private val title: TextView = itemView.findViewById(R.id.postTitle)
+        private val author: TextView = itemView.findViewById(R.id.postAuthor)
+        private val ups: TextView = itemView.findViewById(R.id.postUps)
+        private val down: TextView = itemView.findViewById(R.id.postDown)
 
         fun bind(postGridItem: PostGridItem) {
+            title.text = postGridItem.title
             Picasso.get()
                 .load(postGridItem.imageUrl)
-                .error(android.R.drawable.stat_notify_error)
+                .placeholder(R.mipmap.ic_launcher)
                 .into(image)
         }
     }
