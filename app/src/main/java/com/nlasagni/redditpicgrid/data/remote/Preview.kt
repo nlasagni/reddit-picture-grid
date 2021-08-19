@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
+package com.nlasagni.redditpicgrid.data.remote
 
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data class that represents the source of an [Image] from Reddit APIs.
+ * Data class that represents the images-preview of a [Post] from Reddit APIs.
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class ImageSource(@field:SerializedName("url") val url: String?)
+data class Preview(@field:SerializedName("images") val images: List<Image>?)

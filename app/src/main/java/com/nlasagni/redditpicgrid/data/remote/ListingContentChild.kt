@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
+package com.nlasagni.redditpicgrid.data.remote
 
 import com.google.gson.annotations.SerializedName
 

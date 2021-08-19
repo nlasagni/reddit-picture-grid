@@ -22,13 +22,22 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
+package com.nlasagni.redditpicgrid.data.remote
 
 import com.google.gson.annotations.SerializedName
 
 /**
- * Data class that represents the images-preview of a [Post] from Reddit APIs.
+ * Data class that represents a subreddit from Reddit APIs.
  *
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class Preview(@field:SerializedName("images") val images: List<Image>?)
+data class Post (
+    @field:SerializedName("id") val id: String,
+    @field:SerializedName("title") val title: String?,
+    @field:SerializedName("author") val author: String?,
+    @field:SerializedName("ups") val ups: Long?,
+    @field:SerializedName("downs") val down: Long?,
+    @field:SerializedName("thumbnail") val thumbnail: String?,
+    @field:SerializedName("url") val url: String?,
+    @field:SerializedName("preview") val preview: Preview?
+)
