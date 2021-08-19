@@ -25,10 +25,16 @@
 package com.nlasagni.redditpicgrid.data.remote
 
 /**
+ * Strategy for retrieving the image url of a [Post].
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 interface RetrievePostImageUrlStrategy {
 
+    /**
+     * Retrieves the image URL of the given [post].
+     * @return The image URL of the post.
+     */
     fun retrieveImageUrl(post: Post): String
 
 }

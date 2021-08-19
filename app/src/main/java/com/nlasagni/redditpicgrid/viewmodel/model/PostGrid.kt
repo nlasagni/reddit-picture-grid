@@ -25,6 +25,8 @@
 package com.nlasagni.redditpicgrid.viewmodel.model
 
 /**
+ * Data class that represents a grid of posts.
+ *
  * Created by Nicola Lasagni on 18/08/2021.
  */
 data class PostGrid(val posts: List<PostGridItem>)

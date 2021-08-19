@@ -25,6 +25,8 @@
 package com.nlasagni.redditpicgrid.viewmodel.model
 
 /**
+ * Data class that represents the detail of a post.
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 data class PostDetail(

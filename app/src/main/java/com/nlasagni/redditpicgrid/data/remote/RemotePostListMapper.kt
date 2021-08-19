@@ -25,6 +25,8 @@
 package com.nlasagni.redditpicgrid.data.remote
 
 /**
+ * Utility class to map a [ListingRoot] to a list of [Post] in an easy way.
+ *
  * Created by Nicola Lasagni on 18/08/2021.
  */
 class RemotePostListMapper {

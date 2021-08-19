@@ -31,6 +31,8 @@ import androidx.viewpager.widget.ViewPager
 import com.ortiz.touchview.TouchImageView
 
 /**
+ * ViewPager that avoids scrolling when contains a [TouchImageView].
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 class ZoomableViewPager(context: Context, attrs: AttributeSet): ViewPager(context, attrs) {

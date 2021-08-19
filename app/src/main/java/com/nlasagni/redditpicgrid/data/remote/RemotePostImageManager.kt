@@ -25,6 +25,9 @@
 package com.nlasagni.redditpicgrid.data.remote
 
 /**
+ * Manages the image-related logic by implementing both [CheckImageStrategy]
+ * and [RetrievePostImageUrlStrategy].
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 class RemotePostImageManager : CheckImageStrategy, RetrievePostImageUrlStrategy {

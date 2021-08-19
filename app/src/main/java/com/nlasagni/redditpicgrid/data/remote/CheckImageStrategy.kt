@@ -25,10 +25,16 @@
 package com.nlasagni.redditpicgrid.data.remote
 
 /**
+ * Strategy for checking if a [Post] is related to an image.
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 interface CheckImageStrategy {
 
+    /**
+     * Checks if the given [post] is related to an image.
+     * @return True if the post is related to an image, false otherwise.
+     */
     fun isImage(post: Post): Boolean
 
 }

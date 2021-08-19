@@ -29,6 +29,8 @@ import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
 import javax.inject.Inject
 
 /**
+ * Utility class that converts a list of [Post] to a list of [PostDetail].
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 class PostDetailViewModelFactory @Inject constructor() {

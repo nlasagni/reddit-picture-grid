@@ -39,6 +39,9 @@ import retrofit2.http.Path
  */
 interface RedditService {
 
+    /**
+     * Searches posts by using the given [keyword].
+     */
     @GET("r/{keyword}/top.json?raw_json=1")
     suspend fun searchSubredditPosts(@Path("keyword") keyword: String): ListingRoot?
 

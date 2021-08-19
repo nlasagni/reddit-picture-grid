@@ -36,6 +36,8 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
+ * Data source of [Post]s.
+ *
  * Created by Nicola Lasagni on 18/08/2021.
  */
 class PostDataSource @Inject constructor(
@@ -45,6 +47,10 @@ class PostDataSource @Inject constructor(
     private val retrievePostImageUrlStrategy: RetrievePostImageUrlStrategy
 ) {
 
+    /**
+     * Searches [Post] that that match the searched [keyword].
+     * @return The list of [Post] that match the searched [keyword].
+     */
     suspend fun searchPostsWithPictures(keyword: String): List<Post> {
         return withContext(Dispatchers.IO) {
             var posts: List<Post> = emptyList()

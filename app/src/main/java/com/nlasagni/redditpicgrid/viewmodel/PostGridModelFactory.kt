@@ -30,6 +30,8 @@ import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
 import javax.inject.Inject
 
 /**
+ * Utility class that converts a list of [Post] to a [PostGrid].
+ *
  * Created by Nicola Lasagni on 18/08/2021.
  */
 class PostGridModelFactory @Inject constructor() {

@@ -25,6 +25,8 @@
 package com.nlasagni.redditpicgrid.data.local
 
 /**
+ * Data class that represents a Post used internally by the app.
+ *
  * Created by Nicola Lasagni on 19/08/2021.
  */
 data class Post(
