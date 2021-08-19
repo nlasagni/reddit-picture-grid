@@ -22,30 +22,15 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data
+package com.nlasagni.redditpicgrid.data.remote
 
-import android.util.Log
-import com.nlasagni.redditpicgrid.api.RedditService
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import retrofit2.HttpException
-import javax.inject.Inject
+import com.nlasagni.redditpicgrid.data.remote.Post
 
 /**
- * Created by Nicola Lasagni on 18/08/2021.
+ * Created by Nicola Lasagni on 19/08/2021.
  */
-class ListingRootDataSource @Inject constructor(private val service: RedditService) {
+interface ImageCheckStrategy {
 
-    suspend fun searchPosts(keyword: String): ListingRoot? {
-        return withContext(Dispatchers.IO) {
-            var listingRoot: ListingRoot? = null
-            try {
-                listingRoot = service.searchSubredditPosts(keyword)
-            } catch (ex: HttpException) {
-                Log.e(this::class.simpleName, "HttpException", ex)
-            }
-            listingRoot
-        }
-    }
+    fun isImage(post: Post): Boolean
 
 }

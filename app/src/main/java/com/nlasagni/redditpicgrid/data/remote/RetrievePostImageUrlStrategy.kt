@@ -22,17 +22,17 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.data.local
+package com.nlasagni.redditpicgrid.data.remote
+
+import com.nlasagni.redditpicgrid.data.remote.Post
 
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */
-data class Post(
-    val id: String,
-    val title: String,
-    val author: String,
-    val ups: Long,
-    val down: Long,
-    val thumbnailUrl: String?,
-    val imageUrl: String,
-)
+interface RetrievePostImageUrlStrategy {
+
+    fun retrieveThumbnailUrl(post: Post): String?
+
+    fun retrieveImageUrl(post: Post): String
+
+}
