@@ -27,7 +27,7 @@ package com.nlasagni.redditpicgrid.data.remote
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */
-class RemotePostImageManager : ImageCheckStrategy, RetrievePostImageUrlStrategy {
+class RemotePostImageManager : CheckImageStrategy, RetrievePostImageUrlStrategy {
 
     private val imageTypeSuffixSet = setOf(".jpg", ".jpeg", ".png")
 

@@ -24,7 +24,7 @@
 
 package com.nlasagni.redditpicgrid.di
 
-import com.nlasagni.redditpicgrid.data.remote.ImageCheckStrategy
+import com.nlasagni.redditpicgrid.data.remote.CheckImageStrategy
 import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
 import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
 import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
@@ -51,7 +51,7 @@ object RemoteDataMapperModule {
 
     @Singleton
     @Provides
-    fun provideImageCheckStrategy(): ImageCheckStrategy {
+    fun provideImageCheckStrategy(): CheckImageStrategy {
         return remotePostImageManager
     }
 
