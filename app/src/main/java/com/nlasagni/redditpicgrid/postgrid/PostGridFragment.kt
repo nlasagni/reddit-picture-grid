@@ -32,9 +32,11 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
+import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_grid.*
 import kotlinx.coroutines.Job
@@ -44,11 +46,11 @@ import kotlinx.coroutines.launch
  * Created by Nicola Lasagni on 18/08/2021.
  */
 @AndroidEntryPoint
-class PostGridFragment : Fragment() {
+class PostGridFragment : Fragment(), PostGridAdapter.OnItemClickListener {
 
     private val viewModel: PostGridViewModel by viewModels()
     private var searchJob: Job? = null
-    private val adapter = PostGridAdapter()
+    private val adapter = PostGridAdapter(this)
     private val columnCount = 3
 
     override fun onCreateView(
@@ -95,6 +97,10 @@ class PostGridFragment : Fragment() {
         searchJob = lifecycleScope.launch {
             viewModel.search(keyword)
         }
+    }
+
+    override fun onItemClick(postGridItem: PostGridItem) {
+        findNavController().navigate(R.id.action_postGridFragment_to_postDetailFragment)
     }
 
 }

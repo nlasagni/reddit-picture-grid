@@ -24,6 +24,7 @@
 
 package com.nlasagni.redditpicgrid.postgrid
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,9 @@ import com.squareup.picasso.Picasso
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */
-class PostGridAdapter : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(DiffCallback()) {
+class PostGridAdapter(
+    private val itemClickListener: OnItemClickListener
+) : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -48,14 +51,27 @@ class PostGridAdapter : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(Di
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val post = getItem(position)
-        holder.title.text = post.title
-        Picasso.get().load(post.imageUrl).error(android.R.drawable.stat_notify_error).into(holder.image)
+        holder.bind(getItem(position), itemClickListener)
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val image: ImageView = itemView.findViewById(R.id.postImage)
-        val title: TextView = itemView.findViewById(R.id.postTitle)
+    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        private var title: TextView = itemView.findViewById(R.id.postTitle)
+        private val image: ImageView = itemView.findViewById(R.id.postImage)
+
+        fun bind(postGridItem: PostGridItem, itemClickListener: OnItemClickListener) {
+            title.text = postGridItem.title
+            Picasso.get()
+                .load(postGridItem.imageUrl)
+                .error(android.R.drawable.stat_notify_error)
+                .into(image)
+            view.setOnClickListener {
+                itemClickListener.onItemClick(postGridItem)
+            }
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(postGridItem: PostGridItem)
     }
 
 }
