@@ -39,7 +39,7 @@ class PostGridModelFactory @Inject constructor() {
             val url = it.imageUrl
             PostGridItem(
                 id = it.id,
-                title = it.title ?: "",
+                title = it.title,
                 imageUrl = url,
             )
         }
