@@ -76,14 +76,19 @@
                     android:id="@+id/postAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"/>
+                    android:layout_marginTop="2dp"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
 
                 <TextView
                     android:id="@+id/postUps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     app:drawableStartCompat="@android:drawable/arrow_up_float"
                     app:drawableTint="@color/purple_500"
+                    android:drawablePadding="5dp"
                     android:gravity="start"/>
 
                 <TextView
@@ -92,6 +97,7 @@
                     android:layout_height="wrap_content"
                     app:drawableStartCompat="@android:drawable/arrow_down_float"
                     app:drawableTint="@color/purple_200"
+                    android:drawablePadding="5dp"
                     android:gravity="start"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
