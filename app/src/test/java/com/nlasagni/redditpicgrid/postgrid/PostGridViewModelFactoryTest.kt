@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-package com.nlasagni.redditpicgrid.viewmodel
+package com.nlasagni.redditpicgrid.postgrid
 
 import com.nlasagni.redditpicgrid.MockData
-import com.nlasagni.redditpicgrid.data.PostListMapper
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
+import com.nlasagni.redditpicgrid.postgrid.model.PostGrid
+import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
 import org.junit.Assert
 import org.junit.Test
 
@@ -36,7 +36,7 @@ import org.junit.Test
  */
 class PostGridViewModelFactoryTest {
 
-    private val mapper = PostListMapper()
+    private val mapper = RemotePostListMapper()
 
     @Test
     fun `should create a model for UI from a listing correctly`()  {

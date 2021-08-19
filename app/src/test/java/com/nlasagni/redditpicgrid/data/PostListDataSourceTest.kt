@@ -59,7 +59,7 @@ class PostListDataSourceTest {
         .build()
         .create(RedditService::class.java)
 
-    private val dataSource = ListingRootDataSource(service)
+    private val dataSource = PostDataSource(service)
 
     @After
     fun tearDown() {
@@ -71,7 +71,7 @@ class PostListDataSourceTest {
         mockWebServer.enqueueResponse("subreddit-posts.json", 200)
 
         runBlocking {
-            val listing = dataSource.searchPosts("cat")
+            val listing = dataSource.searchPostsWithPictures("cat")
             assertEquals(MockData.listing, listing)
         }
     }

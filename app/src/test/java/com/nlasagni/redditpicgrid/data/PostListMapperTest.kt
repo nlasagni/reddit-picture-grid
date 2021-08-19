@@ -25,6 +25,7 @@
 package com.nlasagni.redditpicgrid.data
 
 import com.nlasagni.redditpicgrid.MockData
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -35,7 +36,7 @@ class PostListMapperTest {
 
     @Test
     fun `should map listing to posts correctly`() {
-        val mapper = PostListMapper()
+        val mapper = RemotePostListMapper()
         val expected = listOf(MockData.post)
         val postList = mapper.mapToListOfPosts(MockData.listing)
         assertEquals(expected, postList)

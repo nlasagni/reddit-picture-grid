@@ -24,7 +24,7 @@
 
 package com.nlasagni.redditpicgrid
 
-import com.nlasagni.redditpicgrid.data.*
+import com.nlasagni.redditpicgrid.data.remote.*
 
 /**
  * Created by Nicola Lasagni on 18/08/2021.
