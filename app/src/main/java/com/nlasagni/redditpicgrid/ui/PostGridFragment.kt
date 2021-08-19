@@ -50,6 +50,7 @@ class PostGridFragment : Fragment() {
     private val viewModel: PostGridViewModel by viewModels()
     private var searchJob: Job? = null
     private val adapter = PostGridAdapter()
+    private val columnCount = 3
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -63,7 +64,7 @@ class PostGridFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        gridView.layoutManager = GridLayoutManager(context,2)
+        gridView.layoutManager = GridLayoutManager(context, columnCount)
         gridView.adapter = adapter
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
