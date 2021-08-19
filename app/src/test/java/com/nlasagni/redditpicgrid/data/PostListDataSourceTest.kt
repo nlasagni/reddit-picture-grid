@@ -26,6 +26,8 @@ package com.nlasagni.redditpicgrid.data
 
 import com.nlasagni.redditpicgrid.MockData
 import com.nlasagni.redditpicgrid.api.RedditService
+import com.nlasagni.redditpicgrid.data.remote.RemotePostImageManager
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
 import com.nlasagni.redditpicgrid.enqueueResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -59,7 +61,9 @@ class PostListDataSourceTest {
         .build()
         .create(RedditService::class.java)
 
-    private val dataSource = PostDataSource(service)
+    private val mapper = RemotePostListMapper()
+    private val imageManager = RemotePostImageManager()
+    private val dataSource = PostDataSource(service, mapper, imageManager, imageManager)
 
     @After
     fun tearDown() {
@@ -71,8 +75,10 @@ class PostListDataSourceTest {
         mockWebServer.enqueueResponse("subreddit-posts.json", 200)
 
         runBlocking {
-            val listing = dataSource.searchPostsWithPictures("cat")
-            assertEquals(MockData.listing, listing)
+            val localPosts = dataSource.searchPostsWithPictures("cat")
+            println(localPosts.toString())
+            val expected = listOf(MockData.localPost)
+            assertEquals(expected, localPosts)
         }
     }
 

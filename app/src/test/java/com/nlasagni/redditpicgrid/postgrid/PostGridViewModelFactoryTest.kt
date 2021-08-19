@@ -40,14 +40,14 @@ class PostGridViewModelFactoryTest {
 
     @Test
     fun `should create a model for UI from a listing correctly`()  {
-        val viewModelFactory = PostGridModelFactory(mapper)
+        val viewModelFactory = PostGridModelFactory()
         val postGridItem = PostGridItem(
-            MockData.postId,
-            MockData.postTitle,
-            MockData.postThumbnail
+            MockData.localPost.id,
+            MockData.localPost.title,
+            MockData.localPost.imageUrl
         )
         val expected = PostGrid(listOf(postGridItem))
-        val uiModel = viewModelFactory.createModel(MockData.listing)
+        val uiModel = viewModelFactory.createModel(listOf(MockData.localPost))
         Assert.assertEquals(expected, uiModel)
     }
 

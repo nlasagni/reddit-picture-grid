@@ -37,8 +37,8 @@ class PostListMapperTest {
     @Test
     fun `should map listing to posts correctly`() {
         val mapper = RemotePostListMapper()
-        val expected = listOf(MockData.post)
-        val postList = mapper.mapToListOfPosts(MockData.listing)
+        val expected = listOf(MockData.remotePost)
+        val postList = mapper.mapToListOfPosts(MockData.remoteListing)
         assertEquals(expected, postList)
     }
 

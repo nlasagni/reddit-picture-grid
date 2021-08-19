@@ -32,21 +32,25 @@ import com.nlasagni.redditpicgrid.data.remote.*
 object MockData {
 
     val postId = "p62b72"
+    val postHint = "image"
     val postTitle = "Where is our food?"
     val postAuthor = "mattia_cecchi"
     val postUps = 917.toLong()
     val postDowns = 0.toLong()
     val postThumbnail = "https://b.thumbs.redditmedia.com/" +
             "3u_0JieNR-tkIZ0ngCDy3cEmC-eKTbKAT9xT2UuE_Wg.jpg"
+    val postUrl = "https://i.redd.it/8wpoabiyqwh71.jpg"
     val postImageSourceUrl = "https://preview.redd.it/" +
             "8wpoabiyqwh71.jpg?auto=webp&amp;s=abd29248c3129bbd64fdddfac136b9c8b4610c1c"
-    val post = Post(
+    val remotePost = Post(
         id = postId,
+        hint = postHint,
         title = postTitle,
         author = postAuthor,
         ups = postUps,
         down = postDowns,
         thumbnail = postThumbnail,
+        url = postUrl,
         preview = Preview(
             listOf(
                 Image(
@@ -57,14 +61,24 @@ object MockData {
             )
         ),
     )
-    val listing = ListingRoot(
+    val remoteListing = ListingRoot(
         content = ListingContent(
             children = listOf(
                 ListingContentChild(
-                    post = post
+                    post = remotePost
                 )
             )
         )
     )
+    val localPost = com.nlasagni.redditpicgrid.data.local.Post(
+        id = postId,
+        title = postTitle,
+        author = postAuthor,
+        ups = postUps,
+        down = postDowns,
+        thumbnailUrl = postThumbnail,
+        imageUrl = postImageSourceUrl
+    )
+
 
 }
