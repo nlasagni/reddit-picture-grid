@@ -27,4 +27,4 @@ package com.nlasagni.redditpicgrid.viewmodel.model
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
-data class PostGridItem(val id: String, val title: String, val thumbnailUrl: String)
+data class PostGridItem(val id: String, val title: String, val imageUrl: String)
