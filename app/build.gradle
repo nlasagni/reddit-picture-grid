@@ -96,6 +96,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.google.dagger:hilt-android:$hiltVersion"
 
+    implementation 'com.squareup.picasso:picasso:2.8'
+
     testImplementation "junit:junit:$junitVersion"
     testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServer"
     androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
