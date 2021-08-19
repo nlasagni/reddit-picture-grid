@@ -28,11 +28,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.PagerAdapter
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.postgrid.model.PostGridItem
+import com.ortiz.touchview.TouchImageView
 import com.squareup.picasso.Picasso
 
 /**
@@ -41,35 +41,32 @@ import com.squareup.picasso.Picasso
 class PostDetailPagerAdapter(
     private val context: Context,
     private val postGridItems: List<PostGridItem>
-): RecyclerView.Adapter<PostDetailPagerAdapter.PageHolder>() {
+): PagerAdapter() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostDetailPagerAdapter.PageHolder {
-        return PageHolder(
-            LayoutInflater.from(context).inflate(R.layout.post_detail_item, parent, false)
-        )
-    }
-
-    override fun onBindViewHolder(holder: PostDetailPagerAdapter.PageHolder, position: Int) {
-        holder.bind(postGridItems[position])
-    }
-
-    override fun getItemCount(): Int {
+    override fun getCount(): Int {
         return postGridItems.size
     }
 
-    inner class PageHolder(view: View): RecyclerView.ViewHolder(view) {
-        private val image: ImageView = itemView.findViewById(R.id.postImage)
-        private val title: TextView = itemView.findViewById(R.id.postTitle)
-        private val author: TextView = itemView.findViewById(R.id.postAuthor)
-        private val ups: TextView = itemView.findViewById(R.id.postUps)
-        private val down: TextView = itemView.findViewById(R.id.postDown)
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val inflater = LayoutInflater.from(context)
+        val view = inflater.inflate(R.layout.post_detail_item, container, false)
+        val postGridItem = postGridItems[position]
+        val title: TextView = view.findViewById(R.id.postTitle)
+        val image: TouchImageView = view.findViewById(R.id.postImage)
+        title.text = postGridItem.title
+        Picasso.get()
+            .load(postGridItem.imageUrl)
+            .placeholder(R.mipmap.ic_launcher)
+            .into(image)
+        container.addView(view)
+        return view
+    }
 
-        fun bind(postGridItem: PostGridItem) {
-            title.text = postGridItem.title
-            Picasso.get()
-                .load(postGridItem.imageUrl)
-                .placeholder(R.mipmap.ic_launcher)
-                .into(image)
-        }
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
+    }
+
+    override fun isViewFromObject(view: View, `object`: Any): Boolean {
+        return view === `object`
     }
 }

@@ -24,7 +24,6 @@
 
 package com.nlasagni.redditpicgrid.postgrid
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +41,7 @@ import com.squareup.picasso.Picasso
  */
 class PostGridAdapter(
     private val itemClickListener: OnItemClickListener
-) : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(DiffCallback()) {
+) : ListAdapter<PostGridItem, PostGridAdapter.ViewHolder>(PostGridItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
@@ -79,7 +78,7 @@ class PostGridAdapter(
 
 }
 
-class DiffCallback : DiffUtil.ItemCallback<PostGridItem>() {
+class PostGridItemDiffCallback : DiffUtil.ItemCallback<PostGridItem>() {
     override fun areItemsTheSame(oldItem: PostGridItem, newItem: PostGridItem): Boolean {
         return oldItem.id == newItem.id
     }
