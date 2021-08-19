@@ -24,10 +24,7 @@
 
 package com.nlasagni.redditpicgrid.api
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.nlasagni.redditpicgrid.data.ListingRoot
-import com.nlasagni.redditpicgrid.data.Post
+import com.nlasagni.redditpicgrid.data.remote.ListingRoot
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

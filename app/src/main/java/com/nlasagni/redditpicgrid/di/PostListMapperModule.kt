@@ -24,7 +24,7 @@
 
 package com.nlasagni.redditpicgrid.di
 
-import com.nlasagni.redditpicgrid.data.PostListMapper
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,8 +40,8 @@ object PostListMapperModule {
 
     @Singleton
     @Provides
-    fun providePostListMapper(): PostListMapper {
-        return PostListMapper()
+    fun providePostListMapper(): RemotePostListMapper {
+        return RemotePostListMapper()
     }
 
 }

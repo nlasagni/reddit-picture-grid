@@ -24,8 +24,7 @@
 
 package com.nlasagni.redditpicgrid.viewmodel
 
-import com.nlasagni.redditpicgrid.data.ListingRoot
-import com.nlasagni.redditpicgrid.data.PostListMapper
+import com.nlasagni.redditpicgrid.data.local.Post
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
 import javax.inject.Inject
@@ -33,18 +32,17 @@ import javax.inject.Inject
 /**
  * Created by Nicola Lasagni on 18/08/2021.
  */
-class PostGridModelFactory @Inject constructor(
-    private val mapper: PostListMapper) {
+class PostGridModelFactory @Inject constructor() {
 
-    fun createModel(listingRoot: ListingRoot?): PostGrid {
-        val posts = mapper.mapToListOfPosts(listingRoot)?.map {
+    fun createModel(posts: List<Post>): PostGrid {
+        val postGridItems = posts.map {
             PostGridItem(
                 id = it.id,
                 title = it.title ?: "",
-                thumbnailUrl = it.thumbnail ?: ""
+                thumbnailUrl = it.thumbnailUrl ?: it.imageUrl,
             )
-        } ?: emptyList()
-        return PostGrid(posts)
+        }
+        return PostGrid(postGridItems)
     }
 
 }

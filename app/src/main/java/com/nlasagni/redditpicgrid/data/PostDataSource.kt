@@ -28,6 +28,7 @@ import android.util.Log
 import com.nlasagni.redditpicgrid.api.RedditService
 import com.nlasagni.redditpicgrid.data.local.Post
 import com.nlasagni.redditpicgrid.data.remote.ImageCheckStrategy
+import com.nlasagni.redditpicgrid.data.remote.RemotePostListMapper
 import com.nlasagni.redditpicgrid.data.remote.RetrievePostImageUrlStrategy
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -39,7 +40,7 @@ import javax.inject.Inject
  */
 class PostDataSource @Inject constructor(
     private val service: RedditService,
-    private val mapper: PostListMapper,
+    private val mapper: RemotePostListMapper,
     private val imageCheckStrategy: ImageCheckStrategy,
     private val retrievePostImageUrlStrategy: RetrievePostImageUrlStrategy
 ) {
