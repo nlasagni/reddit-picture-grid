@@ -44,11 +44,11 @@ class RemotePostImageManager : ImageCheckStrategy, RetrievePostImageUrlStrategy 
 
     override fun retrieveImageUrl(post: Post): String {
         // Here we assume that a post has at least one image url
-        val url = post.url ?: ""
-        if (url.isNotEmpty()) {
-            return url
+        val imageUrl = post.getFirstImage()?.url ?: ""
+        if (imageUrl.isNotEmpty()) {
+            return imageUrl
         }
-        return post.getFirstImage()!!.url!!
+        return post.url!!
     }
 
     private fun endsWithImageSuffix(string: String?): Boolean {
