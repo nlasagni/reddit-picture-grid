@@ -24,8 +24,6 @@
 
 package com.nlasagni.redditpicgrid.data.remote
 
-import com.nlasagni.redditpicgrid.data.remote.Post
-
 /**
  * Created by Nicola Lasagni on 19/08/2021.
  */

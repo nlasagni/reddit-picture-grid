@@ -34,7 +34,6 @@ import androidx.fragment.app.activityViewModels
 import com.nlasagni.redditpicgrid.R
 import com.nlasagni.redditpicgrid.viewmodel.PostViewModel
 import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_detail.*
 

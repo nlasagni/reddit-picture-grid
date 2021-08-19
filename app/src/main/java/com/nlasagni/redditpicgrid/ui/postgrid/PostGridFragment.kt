@@ -35,9 +35,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.nlasagni.redditpicgrid.R
+import com.nlasagni.redditpicgrid.viewmodel.PostViewModel
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGridItem
-import com.nlasagni.redditpicgrid.viewmodel.PostViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.post_grid.*
 import kotlinx.coroutines.Job

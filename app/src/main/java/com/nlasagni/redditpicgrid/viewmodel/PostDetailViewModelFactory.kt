@@ -26,7 +26,6 @@ package com.nlasagni.redditpicgrid.viewmodel
 
 import com.nlasagni.redditpicgrid.data.local.Post
 import com.nlasagni.redditpicgrid.viewmodel.model.PostDetail
-import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import javax.inject.Inject
 
 /**
