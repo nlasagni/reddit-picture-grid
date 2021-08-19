@@ -36,10 +36,11 @@ class PostGridModelFactory @Inject constructor() {
 
     fun createModel(posts: List<Post>): PostGrid {
         val postGridItems = posts.map {
+            val url = it.imageUrl
             PostGridItem(
                 id = it.id,
                 title = it.title ?: "",
-                thumbnailUrl = it.thumbnailUrl ?: it.imageUrl,
+                imageUrl = url,
             )
         }
         return PostGrid(postGridItems)

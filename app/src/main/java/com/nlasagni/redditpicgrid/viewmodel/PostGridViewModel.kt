@@ -27,7 +27,7 @@ package com.nlasagni.redditpicgrid.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nlasagni.redditpicgrid.data.ListingRootDataSource
+import com.nlasagni.redditpicgrid.data.PostDataSource
 import com.nlasagni.redditpicgrid.viewmodel.model.PostGrid
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -38,7 +38,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class PostGridViewModel @Inject constructor(
-    private val dataSource: ListingRootDataSource,
+    private val dataSource: PostDataSource,
     private val viewModelFactory: PostGridModelFactory
 ) : ViewModel() {
 
@@ -46,7 +46,8 @@ class PostGridViewModel @Inject constructor(
 
     fun search(keyword: String) {
         viewModelScope.launch {
-            postGridLiveData.value = viewModelFactory.createModel(dataSource.searchPosts(keyword))
+            postGridLiveData.value =
+                viewModelFactory.createModel(dataSource.searchPostsWithPictures(keyword))
         }
     }
 
