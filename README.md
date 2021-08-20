@@ -32,7 +32,7 @@ Add a search field at the top. When the user types something, they see the new c
 ## 1.4 Solution
 
 The app has been designed following the 
-[official guide to app architecture](https://developer.android.com/jetpack/guide#show-in-progress-operations).
+[official guide to app architecture](https://developer.android.com/jetpack/guide).
 In particular the main classes involved in the solution are:
 
 - **PostDataSource:** responsible of retrieving posts that match the keyword searched.
